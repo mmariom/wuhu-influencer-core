@@ -1,0 +1,8 @@
+<h2>Step 2: Phone Number</h2>
+
+<%= form_for @seller, url: wizard_path, method: :put do |f| %>
+  <%= f.label :phone_number %>
+  <%= f.telephone_field :phone_number %>
+
+  <%= f.submit "Next" %>
+<% end %>

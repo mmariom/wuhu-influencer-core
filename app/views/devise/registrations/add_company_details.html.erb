@@ -1,0 +1,25 @@
+<h2>Step 5: Company Details</h2>
+
+<%= form_for @seller, url: wizard_path, method: :put do |f| %>
+  <%= fields_for :seller_company, @seller.seller_company || @seller.build_seller_company do |company_fields| %>
+    <%= company_fields.label :company_name %>
+    <%= company_fields.text_field :company_name %>
+
+    <%= company_fields.label :company_reg_number %>
+    <%= company_fields.text_field :company_reg_number %>
+
+    <%= company_fields.label :street %>
+    <%= company_fields.text_field :street %>
+
+    <%= company_fields.label :city %>
+    <%= company_fields.text_field :city %>
+
+    <%= company_fields.label :postal_code %>
+    <%= company_fields.text_field :postal_code %>
+
+    <%= company_fields.label :country %>
+    <%= company_fields.text_field :country %>
+  <% end %>
+
+  <%= f.submit "Register" %>
+<% end %>

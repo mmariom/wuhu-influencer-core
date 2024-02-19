@@ -1,0 +1,25 @@
+<h2>Step 3: Personal Details</h2>
+
+<%= form_for @seller, url: wizard_path, method: :put do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+
+  <%= fields_for :seller_address, @seller.seller_address || @seller.build_seller_address do |address_fields| %>
+    <%= address_fields.label :street %>
+    <%= address_fields.text_field :street %>
+
+    <%= address_fields.label :city %>
+    <%= address_fields.text_field :city %>
+
+    <%= address_fields.label :postal_code %>
+    <%= address_fields.text_field :postal_code %>
+
+    <%= address_fields.label :country %>
+    <%= address_fields.text_field :country %>
+  <% end %>
+
+  <%= f.submit "Next" %>
+<% end %>

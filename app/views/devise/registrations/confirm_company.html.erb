@@ -1,0 +1,8 @@
+<h2>Step 4: Are you registering as a company?</h2>
+
+<%= form_for @seller, url: wizard_path, method: :put do |f| %>
+  <%= f.label :is_business_user, "Yes, I am registering as a company." %>
+  <%= f.check_box :is_business_user %>
+
+  <%= f.submit "Next" %>
+<% end %>
