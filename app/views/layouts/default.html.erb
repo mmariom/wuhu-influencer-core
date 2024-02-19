@@ -13,21 +13,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <link rel='stylesheet' type='text/css' media='screen' href="/assets/css/perfect-scrollbar.min.css" />
-    <link rel='stylesheet' type='text/css' media='screen' href="/assets/css/style.css" />
-    <link defer rel='stylesheet' type='text/css' media='screen' href="/assets/css/animate.css" />
+        <%= javascript_include_tag 'theme/perfect-scrollbar.min' %>
+        <%= javascript_include_tag 'theme/popper.min', defer: true %>
+        <%= javascript_include_tag 'theme/tippy-bundle.umd.min', defer: true %>
+        <%= javascript_include_tag 'theme/sweetalert.min', defer: true %>
 
-    <script src="/assets/js/perfect-scrollbar.min.js"></script>
-    <script defer src="/assets/js/popper.min.js"></script>
-    <script defer src="/assets/js/tippy-bundle.umd.min.js"></script>
-    <script defer src="/assets/js/sweetalert.min.js"></script>
 
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%# <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%# <%= javascript_importmap_tags %> 
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %> 
 
 </head>
 
@@ -106,12 +103,23 @@
         </div>
     </div>
 
-    <script src="/assets/js/alpine-collaspe.min.js"></script>
+    <%# <script src="/assets/js/alpine-collaspe.min.js"></script>
     <script src="/assets/js/alpine-persist.min.js"></script>
     <script defer src="/assets/js/alpine.min.js"></script>
     <script src="/assets/js/custom.js"></script>
     <script defer src="/assets/js/alpine-ui.min.js"></script>
-    <script defer src="/assets/js/alpine-focus.min.js"></script>
+    <script defer src="/assets/js/alpine-focus.min.js"></script> %>
+
+    <%= javascript_include_tag 'theme/alpine-collaspe.min' %>
+    <%= javascript_include_tag 'theme/alpine-persist.min' %>
+    <%= javascript_include_tag 'theme/alpine.min', defer: true %>
+    <%= javascript_include_tag 'theme/custom' %>
+    <%= javascript_include_tag 'theme/alpine-ui.min', defer: true %>
+    <%= javascript_include_tag 'theme/alpine-focus.min', defer: true %>
+
+
+
+
 
 </body>
 
