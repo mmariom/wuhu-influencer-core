@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :sellers, controllers: { registrations: 'sellers/registrations' }
 
+  # config/routes.rb
+
+  
+  post '/set_language/:locale', to: 'application#set_language'
+
   # Scope your routes to the 'sellers' namespace to match your controller
   scope module: :sellers do
     resources :registrations, only: [] do

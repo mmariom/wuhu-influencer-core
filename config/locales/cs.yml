@@ -1,0 +1,6 @@
+cs:
+  hello: "Ahoj"
+  signup:
+    title: "Registrácia"
+    submit: "Registrovať"
+  welcome_message: "Vitej voleee"

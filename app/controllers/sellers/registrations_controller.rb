@@ -6,7 +6,7 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    
+    render layout: 'auth'
   end
 
   # POST /resource

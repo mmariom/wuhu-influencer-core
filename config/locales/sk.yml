@@ -1,0 +1,6 @@
+sk:
+  hello: "Ahoj"
+  signup:
+    title: "Registrácia"
+    submit: "Registrovať"
+  welcome_message: "Vitajte Správa"
