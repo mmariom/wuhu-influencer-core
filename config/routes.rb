@@ -1,26 +1,23 @@
 Rails.application.routes.draw do
-  devise_for :sellers, controllers: { registrations: 'sellers/registrations' }
-
-  # config/routes.rb
-
-  
   post '/set_language/:locale', to: 'application#set_language'
-
-  # Scope your routes to the 'sellers' namespace to match your controller
-  scope module: :sellers do
-    resources :registrations, only: [] do
-      get 'step/:id', to: 'registrations#show', as: :registration_step, on: :collection
-      put 'step/:id', to: 'registrations#update', on: :collection
-      patch 'step/:id', to: 'registrations#update', on: :collection
+  devise_for :sellers, controllers: { registrations: 'sellers/registrations', confirmations: 'sellers/confirmations'}
+  get '/dashboard', to: 'dashboard#index'
+  devise_scope :seller do
+    authenticated :seller do
+      root to: 'dashboard#index', as: :authenticated_root
     end
+
+    unauthenticated :seller do
+      root to: 'sellers/registrations#new', as: :unauthenticated_root
+    end
+    get '/sellers/:id', to: 'sellers/registrations#show'
+    get '/sellers/:id', to: 'sellers/confirmations#show'
+    get '/sellers/:id', to: 'sellers/addresses#show'
   end
 
-  root to: 'dashboard#index'
+  namespace :sellers do
+    resources :companies, only: [:create]
+    resources :addresses, only: [:create, :edit]
+    patch '/addresses/:identification_number', to: 'addresses#update', as: :address
+  end
 end
-
-
-# Rails.application.routes.draw do
-#   devise_for :users, controllers: {
-#     sessions: 'users/sessions'
-#   }
-# end

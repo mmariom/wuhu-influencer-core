@@ -73,3 +73,5 @@ gem 'devise'
 gem 'pg'
 
 gem 'wicked'
+
+gem "letter_opener", group: :development
